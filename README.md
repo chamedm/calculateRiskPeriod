@@ -6,7 +6,7 @@ Service that runs an algorithm to measure each reunion's "risk period" based on 
 
 ## Functional Requirements
 - The day 0 of possible infection will be the day the reunion is created
-- An initial risk % (initialRisk) is calculated as soon as the reunion is created based on the following metrics and weighting their inputs:
+- An initial risk % (initialRiskFactor) is calculated as soon as the reunion is created based on the following metrics and weighting their inputs:
   * Algorithm should take into account number of people in the reunion
   * Algorithm should take into account how many time was the reunion
   * Algorithm should take into account if people were waring mask
@@ -22,19 +22,16 @@ Service that runs an algorithm to measure each reunion's "risk period" based on 
   * Orange: 4-7 days
   * Yellow: 7-11 days
   * Green: 11-14 days
-- An initial risk % (initialRisk) is calculated as soon as the reunion is created based on the following metrics and weighting their inputs:
-- 
--  Red - really contagious: someone from the reunion tested possitive or is showing symptomps up to seven days after the reunion. 
--  Orange - not sure if contagiuous: it has passed less than a week since the reunion AND no one has shown symptoms nor tested postive
--  Yellow - mildly contagious: 
-- Green
-- It updates every day if no new update is made, e.g. any of the reunion's participant got the virus.
-
+- The status should update each day according to the above metrics
+- It should calculate a high risk (red) if a participant of the reunion gets infected and logs it on the app
 - Algorithm should take into account the two week span of transmission
+- Algorithm stops calculating after two weeks of the reunion
 
 ## Non Functional Requirements
 - The risk of reunion is presented easily and visually on the UI
-- 
+- The algorithm gets the input if any infection is reported
+- The algorithm should run automatically on a new day
+- All information about the reunion should be provided
 
 ## Deployment URL
 
