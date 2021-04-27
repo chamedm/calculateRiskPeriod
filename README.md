@@ -22,5 +22,15 @@ Service that runs an algorithm to measure each reunion's "risk period" based on 
 - All information about the reunion should be provided
 
 ## Deployment URL
+https://us-south.functions.appdomain.cloud/api/v1/web/is708177%40iteso.mx_dev/ProyectoFinal/calculateRiskPeriod
 
+Example of body expected on GET
+{
+  "registeredDate": "22/04/11",
+  "users": ["mariana@mail.com", "caro@mail.com", "dario@mail.com" ],
+  "duration": 30,
+  "masks": true,
+  "openSpace": true,
+  "risk": 2
+}
 
