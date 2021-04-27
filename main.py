@@ -1,9 +1,9 @@
-import datetime
+from datetime import datetime
 
 def main(reunion):
   factorFromDays = 0
   compoundRisk = 0
-  currentDate = datetime.datetime.now()
+  currentDate = datetime.today()
   delta = ((reunion.registeredDate-currentDate).days) * -1
   if (delta < 14):
     factorFromDays = getRiskFactorFromDays(delta)
@@ -70,15 +70,16 @@ def getCompoundRisk(risk, factorFromDays):
 
 
 class Reunion:
-  def __init__(self, users, duration, masks, openSpace ):
-    self.registeredDate = datetime.datetime(2021,4,18)
+  def __init__(self, users, duration, masks, openSpace, registeredDate):
+    self.registeredDate = datetime.strptime(registeredDate,"%d/%m/%y")
     self.users = users
     self.duration = duration
     self.masks = masks
     self.openSpace = openSpace
-    self.risk = 3
+    self.risk = 0
   
 
 if(__name__ == "__main__"):
-  r1 = Reunion(3,20,True,True) 
-  main(r1)
+  # r1 = Reunion(3,20,True,True) 
+  r2 = Reunion( ["mariana@mail.com", "caro@mail.com", "dario@mail.com" ],20,True,True, "20/04/21") 
+  main(r2)
